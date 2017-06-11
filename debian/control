@@ -1,0 +1,23 @@
+Source: libsara
+Maintainer: Salvatore Mesoraca <s.mesoraca16@gmail.com>
+Section: devel
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/smeso/libsara
+
+Package: libsara0
+Section: libs
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: S.A.R.A.'s library.
+ S.A.R.A.'s library.
+ Work in Progress
+
+Package: libsara-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: S.A.R.A.'s library dev files.
+ S.A.R.A.'s library dev files.
+ Work in Progress
