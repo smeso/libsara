@@ -1,2 +1,3 @@
 usr/include/sara.h
 usr/lib/libsara.a
+usr/lib/pkgconfig/libsara.pc
