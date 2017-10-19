@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "libsara.h"
+#include "sara.h"
 
 int set_wxprot_self_flags(uint16_t flags)
 {

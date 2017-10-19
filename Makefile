@@ -43,11 +43,11 @@ install: all
 	mkdir -p $(DESTDIR)/$(LIBDIR)
 	mkdir -p $(DESTDIR)/$(STATICLIBDIR)
 	mkdir -p $(DESTDIR)/$(INCLUDEDIR)
-	cp libsara.h $(DESTDIR)/$(INCLUDEDIR)
+	cp sara.h $(DESTDIR)/$(INCLUDEDIR)
 	cp libsara.so $(DESTDIR)/$(LIBDIR)
 	cp libsara.a $(DESTDIR)/$(STATICLIBDIR)
 uninstall:
-	-rm $(DESTDIR)/$(INCLUDEDIR)/libsara.h
+	-rm $(DESTDIR)/$(INCLUDEDIR)/sara.h
 	-rm $(DESTDIR)/$(LIBDIR)/libsara.so
 	-rm $(DESTDIR)/$(STATICLIBDIR)/libsara.a
 endif

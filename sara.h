@@ -6,8 +6,8 @@
  */
 
 
-#ifndef _LIBSARA_H
-#define _LIBSARA_H
+#ifndef _SARA_H
+#define _SARA_H
 
 #include <stdint.h>
 #include <unistd.h>
@@ -39,4 +39,4 @@ uint16_t get_wxprot_flags(pid_t pid);
 uint16_t get_wxprot_self_flags(void);
 int is_emutramp_active(void);
 
-#endif /* _LIBSARA_H */
+#endif /* _SARA_H */
