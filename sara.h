@@ -24,13 +24,13 @@
 #define SARA_EMUTRAMP		0x0100
 #define SARA_TRANSFER		0x0200
 #define SARA_NONE		0x0000
-#define SARA_MPROTECT		(SARA_HEAP	| \
-				SARA_STACK	| \
-				SARA_OTHER	| \
-				SARA_WXORX)
-#define SARA_FULL		(SARA_MPROTECT	| \
-				SARA_MMAP	| \
-				SARA_FORCE_WXORX)
+#define SARA_MPROTECT		(SARA_HEAP		| \
+				 SARA_STACK		| \
+				 SARA_OTHER		| \
+				 SARA_WXORX)
+#define SARA_FULL		(SARA_MPROTECT		| \
+				 SARA_MMAP		| \
+				 SARA_FORCE_WXORX)
 
 int set_wxprot_self_flags(uint16_t flags);
 int add_wxprot_self_flags(uint16_t flags);
