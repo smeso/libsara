@@ -52,6 +52,11 @@ uninstall:
 	-rm $(DESTDIR)/$(INCLUDEDIR)/sara.h
 	-rm $(DESTDIR)/$(LIBDIR)/libsara.so
 	-rm $(DESTDIR)/$(STATICLIBDIR)/libsara.a
+	-rm $(DESTDIR)/$(LIBDIR)/pkgconfig/libsara.pc
+	-rmdir $(DESTDIR)/$(INCLUDEDIR)
+	-rmdir $(DESTDIR)/$(LIBDIR)
+	-rmdir $(DESTDIR)/$(STATICLIBDIR)
+	-rmdir $(DESTDIR)/$(LIBDIR)/pkgconfig/
 endif
 endif
 endif
