@@ -23,10 +23,11 @@ CC := $(CROSS_COMPILE)gcc
 LD := $(CROSS_COMPILE)ld
 CFLAGS := -O2 -fstack-protector -fPIC $(CFLAGS)
 LDFLAGS := -Wl,-z,relro -Wl,-z,now -Wl,-Bsymbolic-functions -shared $(LDFLAGS)
+SRCDIR= src/
 
 all: libsara.so libsara.a
 
-$(SOURCE)%.o: $(SOURCE)%.c
+$(SOURCE)%.o: $(SRCDIR)/$(SOURCE)%.c
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 libsara.so: libsara.o
@@ -44,7 +45,7 @@ install: all
 	mkdir -p $(DESTDIR)/$(STATICLIBDIR)
 	mkdir -p $(DESTDIR)/$(INCLUDEDIR)
 	mkdir -p $(DESTDIR)/$(LIBDIR)/pkgconfig/
-	cp sara.h $(DESTDIR)/$(INCLUDEDIR)
+	cp $(SRCDIR)/sara.h $(DESTDIR)/$(INCLUDEDIR)
 	cp libsara.so $(DESTDIR)/$(LIBDIR)
 	cp libsara.a $(DESTDIR)/$(STATICLIBDIR)
 	cp libsara.pc $(DESTDIR)/$(LIBDIR)/pkgconfig/
@@ -65,5 +66,6 @@ endif
 clean:
 	-rm -f libsara.so* libsara.a
 	-rm -f *.o *~
+	-rm -f $(SRCDIR)/*~
 
 .PHONY: all install uninstall clean
