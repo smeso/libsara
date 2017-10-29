@@ -15,7 +15,7 @@ int set_wxprot_self_flags(uint16_t flags)
 {
 	FILE *f;
 
-	f = fopen("/proc/self/attr/sara/wxprot", "w");
+	f = fopen("/proc/thread-self/attr/sara/wxprot", "w");
 	if (f == NULL)
 		return 1;
 	if (fprintf(f, "0x%04x\n", flags) != 7)
@@ -28,7 +28,7 @@ int set_wxprot_self_flags(uint16_t flags)
 static uint16_t __get_wxprot_flags(char *str)
 {
 	FILE *f;
-	char path[33];
+	char path[64];
 	char buf[7] = {0};
 
 	snprintf(path, sizeof(path), "/proc/%s/attr/sara/wxprot", str);
@@ -43,7 +43,7 @@ static uint16_t __get_wxprot_flags(char *str)
 
 uint16_t get_wxprot_self_flags(void)
 {
-	return __get_wxprot_flags("self");
+	return __get_wxprot_flags("thread-self");
 }
 
 uint16_t get_wxprot_flags(pid_t pid)
