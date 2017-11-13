@@ -32,9 +32,9 @@
 				 SARA_MMAP		| \
 				 SARA_FORCE_WXORX)
 
-int set_wxprot_self_flags(uint16_t flags);
-int add_wxprot_self_flags(uint16_t flags);
-int rm_wxprot_self_flags(uint16_t flags);
+int set_wxprot_self_flags(uint16_t flags) __attribute__((warn_unused_result));
+int add_wxprot_self_flags(uint16_t flags) __attribute__((warn_unused_result));
+int rm_wxprot_self_flags(uint16_t flags) __attribute__((warn_unused_result));
 uint16_t get_wxprot_flags(pid_t pid);
 uint16_t get_wxprot_self_flags(void);
 int is_emutramp_active(void);
