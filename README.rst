@@ -15,3 +15,5 @@ To compile and install it just run:
 
 To uninstall it run:
 	sudo make uninstall
+
+You can find more information about S.A.R.A. at <https://smeso.it/sara>
