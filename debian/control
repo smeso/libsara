@@ -4,20 +4,20 @@ Section: devel
 Priority: optional
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
-Homepage: https://github.com/smeso/libsara
+Homepage: https://smeso.it/sara
 
 Package: libsara0
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: S.A.R.A.'s library.
- S.A.R.A.'s library.
- Work in Progress
+ libsara can be used to query or change S.A.R.A.'s WX Protections
+ flags.
 
 Package: libsara-dev
 Section: libdevel
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: S.A.R.A.'s library dev files.
- S.A.R.A.'s library dev files.
- Work in Progress
+ libsara can be used to query or change S.A.R.A.'s WX Protections
+ flags.
