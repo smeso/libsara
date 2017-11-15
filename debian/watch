@@ -1,0 +1,3 @@
+version=3
+opts=pgpsigurlmangle=s#archive/v([0-9\.\-rc]+)\.tar\.gz#releases/download/v$1/v$1.tar.gz.asc# \
+https://github.com/smeso/libsara/releases .*/v([0-9\.\-rc]+)\.tar\.gz
