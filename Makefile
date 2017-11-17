@@ -23,7 +23,7 @@ CC := $(CROSS_COMPILE)gcc
 LD := $(CROSS_COMPILE)ld
 CFLAGS := -O2 -fstack-protector -fPIC $(CFLAGS)
 LDFLAGS := -Wl,-z,relro -Wl,-z,now -Wl,-Bsymbolic-functions -shared $(LDFLAGS)
-SRCDIR= src/
+SRCDIR= ./
 
 all: libsara.so libsara.a
 
