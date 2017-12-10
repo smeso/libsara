@@ -67,8 +67,10 @@ endif
 endif
 
 clean:
-	-rm -f libsara.so* libsara.a
 	-rm -f *.o *~
 	-rm -f $(SRCDIR)/*~
 
-.PHONY: all install uninstall clean
+distclean:
+	-rm -f libsara.so* libsara.a
+
+.PHONY: all install uninstall clean distclean
