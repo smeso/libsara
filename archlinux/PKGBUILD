@@ -1,0 +1,28 @@
+# Maintainer: Salvatore Mesoraca <s.mesoraca16@gmail.com>
+pkgname=libsara
+pkgver=r16.f1c2223
+pkgrel=1
+pkgdesc="S.A.R.A.'s helper library"
+arch=('x86_64')
+url="https://github.com/smeso/libsara"
+license=('custom')
+depends=('glibc')
+makedepends=('git')
+source=('git+https://github.com/smeso/libsara.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${pkgname}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 "LICENSE.txt" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.txt"
+}
