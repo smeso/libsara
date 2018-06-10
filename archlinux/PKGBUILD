@@ -1,6 +1,6 @@
 # Maintainer: Salvatore Mesoraca <s.mesoraca16@gmail.com>
 pkgname=libsara
-pkgver=r16.f1c2223
+pkgver=0.1
 pkgrel=1
 pkgdesc="S.A.R.A.'s helper library"
 arch=('x86_64')
@@ -8,13 +8,10 @@ url="https://github.com/smeso/libsara"
 license=('custom')
 depends=('glibc')
 makedepends=('git')
-source=('git+https://github.com/smeso/libsara.git')
+source=("git+https://github.com/smeso/libsara.git#tag=v${pkgver}?signed")
+validpgpkeys=('D7286260BBF31719A2759FA485F0580B9DACBE6E' # Salvatore Mesoraca
+             )
 md5sums=('SKIP')
-
-pkgver() {
-  cd "${srcdir}/${pkgname}"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
 
 build() {
   cd "${srcdir}/${pkgname}"
