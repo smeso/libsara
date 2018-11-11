@@ -6,21 +6,13 @@
 #     This program is released under CC0 1.0 Universal license
 #
 
-ifndef DESTDIR
-DESTDIR := /
-endif
-ifndef LIBDIR
-LIBDIR := usr/lib/
-endif
-ifndef STATICLIBDIR
-STATICLIBDIR := usr/lib/
-endif
-ifndef INCLUDEDIR
-INCLUDEDIR := usr/include/
-endif
+DESTDIR ?= /
+LIBDIR ?= usr/lib/
+STATICLIBDIR ?= usr/lib/
+INCLUDEDIR ?= usr/include/
 
-CC := $(CROSS_COMPILE)gcc
-LD := $(CROSS_COMPILE)ld
+CC ?= $(CROSS_COMPILE)gcc
+LD ?= $(CROSS_COMPILE)ld
 CFLAGS := -O2 -fstack-protector -fPIC $(CFLAGS)
 LDFLAGS := -Wl,-z,relro -Wl,-z,now -Wl,-Bsymbolic-functions -shared $(LDFLAGS)
 SRCDIR= ./
@@ -36,10 +28,6 @@ libsara.so: libsara.o
 libsara.a: libsara.o
 	ar rcs $@ $^
 
-ifdef DESTDIR
-ifdef LIBDIR
-ifdef STATICLIBDIR
-ifdef INCLUDEDIR
 install: all
 	mkdir -p $(DESTDIR)/$(LIBDIR)
 	mkdir -p $(DESTDIR)/$(STATICLIBDIR)
@@ -51,6 +39,7 @@ install: all
 	cp libsara.a $(DESTDIR)/$(STATICLIBDIR)
 	cp libsara.pc $(DESTDIR)/$(LIBDIR)/pkgconfig/
 	gzip -c man/sara.h.3 > $(DESTDIR)/usr/share/man/man3/sara.h.3.gz
+
 uninstall:
 	-rm $(DESTDIR)/$(INCLUDEDIR)/sara.h
 	-rm $(DESTDIR)/$(LIBDIR)/libsara.so
@@ -61,10 +50,6 @@ uninstall:
 	-rmdir $(DESTDIR)/$(LIBDIR)
 	-rmdir $(DESTDIR)/$(STATICLIBDIR)
 	-rmdir $(DESTDIR)/$(LIBDIR)/pkgconfig/
-endif
-endif
-endif
-endif
 
 clean:
 	-rm -f *.o *~
